@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Food Choose</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <p class="header">What do you want to eat today?</p>
+
+        <div class="user-input">
+            <input 
+                class="food-input"
+                placeholder="Add Food">
+            
+            <button 
+                onclick="addFood();"
+                class="add-button">
+                Add
+            </button>
+        </div>
+
+        <div class="food-list"></div>
+
+        <div class="button-to-random">
+        <button onclick="randomizeFood();" class="random-button">Randomize Options</button>
+        </div>
+
+        <div class="display-result">
+            <p class="food-result"></p>
+        </div>
+
+        <p class="header">Still can't decide? Here's a quote to cheer you on!</p>
+
+        <div class="button-to-random">
+            <button id="btn" class="random-button">Get Quote</button>
+        </div>
+
+        <div class="quotes">
+            <p id="quote" class="author"></p>
+            <h3 id="author" class="author"></h3>
+        </div>
+
+
+        <script src="script.js"></script>
+    </body>
+</html>
