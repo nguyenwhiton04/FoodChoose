@@ -41,13 +41,13 @@ function randomizeFood(){
     document.querySelector('.food-result').innerHTML = `The result is: ${result}`;
 }
 
-let quote = document.getElementById("quote");
-let author = document.getElementById("author");
-let btn = document.getElementById("btn");
 
-const url = "https://api.quotable.io/random";
 
 let getQuote = () => {
+    let quote = document.getElementById("quote");
+    let author = document.getElementById("author");
+    const url = "https://api.quotable.io/random";
+
     fetch(url)
         .then(data => data.json())
         .then((item) => {
@@ -55,4 +55,33 @@ let getQuote = () => {
             author.innerText = item.author;
         });
 };
-btn.addEventListener("click", getQuote);
+
+
+
+let getRestaurant = () => {
+
+    const userInputElement = document.querySelector('.zip-code-input');
+    const userZipCode = userInputElement.value;
+    console.log(userZipCode);
+    const restaurantUrl = `https://restaurants-near-me-usa.p.rapidapi.com/restaurants/location/zipcode/${userZipCode}/0`;
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': '95d03f0e01msh0c3cf2866530f4cp1b0696jsn4e9ed3d00504',
+            'X-RapidAPI-Host': 'restaurants-near-me-usa.p.rapidapi.com'
+        }
+    };
+
+    fetch(restaurantUrl, options)
+        .then(resp => resp.json())
+        .then((item) => {
+            let restaurantListHTML = '';
+            for(let i = 0; i < 10; i++){
+                const restaurantOption = item.restaurants[i].restaurantName;
+                const html = `<div>${restaurantOption}</div>`;
+                restaurantListHTML += html;
+            }
+            document.querySelector('.restaurant-list').innerHTML = restaurantListHTML;
+        });
+    
+};
