@@ -2,46 +2,68 @@
 
 <html>
     <head>
-        <title>Food Choose</title>
+        <title>Toggle</title>
         <link rel="stylesheet" href="style.css">
     </head>
 
     <body>
-        <p class="header">What do you want to eat today?</p>
+        <div class="top">
+            <h1 class="header">What do you feel like eating today?</h1>
 
-        <div class="user-input">
-            <input 
-                class="food-input"
-                placeholder="Add Food">
-            
-            <button 
-                onclick="addFood();"
-                class="add-button">
-                Add
-            </button>
+            <div class="user-input">
+                <input 
+                    class="food-input"
+                    placeholder="Add Food">
+                
+                <button 
+                    onclick="addFood();"
+                    class="add-button">
+                    Add
+                </button>
+            </div>
+
+            <div class="food-list"></div>
+
+            <div class="button-to-random">
+            <button onclick="randomizeFood();" class="random-button">Randomize Options</button>
+            </div>
+
+            <div class="display-result">
+                <p class="food-result"></p>
+            </div>
+
+
         </div>
 
-        <div class="food-list"></div>
 
-        <div class="button-to-random">
-        <button onclick="randomizeFood();" class="random-button">Randomize Options</button>
+        <div class="middle">
+            <h2 class="header">Still can't decide? Here's a quote to cheer you on!</h2>
+
+            <div class="button-to-random">
+                <button id="btn" class="random-button" onclick="getQuote();">Get Quote</button>
+            </div>
+
+            <div class="quotes">
+                <p id="quote"></p>
+                <h3 id="author" class="author"></h3>
+            </div>
+
         </div>
 
-        <div class="display-result">
-            <p class="food-result"></p>
+        <div class="bottom">
+            <h2 class="header">Recommendations</h2>
+            <div class="user-input">
+                <input class="zip-code-input" placeholder="Add Zip Code">
+                <button id="btn" class="random-button button-to-restaurant" onclick="getRestaurant();">Restaurants Near Me</button>
+            </div>
+
+            <div class="restaurant-list">
+            </div>
         </div>
 
-        <p class="header">Still can't decide? Here's a quote to cheer you on!</p>
-
-        <div class="button-to-random">
-            <button id="btn" class="random-button">Get Quote</button>
-        </div>
-
-        <div class="quotes">
-            <p id="quote" class="author"></p>
-            <h3 id="author" class="author"></h3>
-        </div>
-
+        <script src="script.js"></script>
+    </body>
+</html>
 
         <script src="script.js"></script>
     </body>
